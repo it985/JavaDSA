@@ -25,4 +25,26 @@ Java data structure algorithms
 3. 当队列满时，条件是  (rear  + 1) % maxSize == front 【满】
 4. 对队列为空的条件， rear == front 空
 5. 当我们这样分析， 队列中有效的数据的个数   (rear + maxSize - front) % maxSize   // rear = 1 front = 0
+
+### 2.LinkedList
+#### 单链表
+##### 创建
+![3.png](img/3.png)
+添加（创建）
+1. 先创建一个head 头节点， 作用就是表示单链表的头
+2. 后面我们每添加一个节点，就直接加入到  链表的最后
+   遍历：
+1.  通过一个辅助变量遍历，帮助遍历整个链表
+##### 添加
+![4.png](img/4.png)
+需要按照编号的顺序添加
+1. 首先找到新添加的节点的位置, 是通过辅助变量(指针), 通过遍历来搞定
+2. 新的节点.next = temp.next
+3. 将temp.next = 新的节点
+##### 删除
+![5.png](img/5.png)
+从单链表中删除一个节点的思路
+1.  我们先找到 需要删除的这个节点的前一个节点 temp
+2.  temp.next = temp.next.next
+3. 被删除的节点，将不会有其它引用指向，会被垃圾回收机制回收
 ## algorithms
