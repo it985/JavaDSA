@@ -55,11 +55,11 @@ public class LinkedListStackDemo {
 
 //定义一个LinkedListStack栈
 class LinkedListStack {
+    //定义最大长度
+    int maxLength;
     //先初始化一个头节点，头节点不要动，不存放具体的数据
     private HeroNode head = new HeroNode(-1, 0);
     private int top = -1;//栈顶指针
-    //定义最大长度
-    int maxLength;
 
     //构造方法
     //传入maxLength设置栈的最大容量
@@ -149,6 +149,12 @@ class HeroNode {
     private int value;//节点数据
     private HeroNode next;//指向下一个节点
 
+    //构造方法
+    public HeroNode(int no, int value) {
+        this.no = no;
+        this.value = value;
+    }
+
     public int getNo() {
         return no;
     }
@@ -170,12 +176,6 @@ class HeroNode {
     }
 
     public void setValue(int value) {
-        this.value = value;
-    }
-
-    //构造方法
-    public HeroNode(int no, int value) {
-        this.no = no;
         this.value = value;
     }
 

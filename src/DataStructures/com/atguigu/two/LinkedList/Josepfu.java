@@ -17,7 +17,7 @@ public class Josepfu {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             System.out.println("------休眠-----");
         }
 
@@ -76,10 +76,11 @@ class CircleSingleLinkedList {
     }
 
     /**
-     *  根据用户的输入，计算出小孩出圈的顺序
-     * @param startNo 表示从第几个小孩开始数数
+     * 根据用户的输入，计算出小孩出圈的顺序
+     *
+     * @param startNo  表示从第几个小孩开始数数
      * @param countNum 表示数几下
-     * @param nums 表示最初有多少小孩在圈中
+     * @param nums     表示最初有多少小孩在圈中
      */
     public void countBoy(int startNo, int countNum, int nums) {
         // 先对数据进行校验
@@ -97,18 +98,18 @@ class CircleSingleLinkedList {
             helper = helper.getNext();
         }
         //小孩报数前，先让 first 和  helper 移动 k - 1次
-        for(int j = 0; j < startNo - 1; j++) {
+        for (int j = 0; j < startNo - 1; j++) {
             first = first.getNext();
             helper = helper.getNext();
         }
         //当小孩报数时，让first 和 helper 指针同时 的移动  m  - 1 次, 然后出圈
         //这里是一个循环操作，知道圈中只有一个节点
-        while(true) {
-            if(helper == first) { //说明圈中只有一个节点
+        while (true) {
+            if (helper == first) { //说明圈中只有一个节点
                 break;
             }
             //让 first 和 helper 指针同时 的移动 countNum - 1
-            for(int j = 0; j < countNum - 1; j++) {
+            for (int j = 0; j < countNum - 1; j++) {
                 first = first.getNext();
                 helper = helper.getNext();
             }

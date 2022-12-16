@@ -1,6 +1,7 @@
 package DataStructures.com.atguigu.three.stack.demo;
 
 import java.util.Scanner;
+
 /**
  * @author zx
  * @date 2022年10月19日15:12:43
@@ -15,7 +16,7 @@ public class ArrayStackDemo {
         boolean loop = true; //控制是否退出菜单
         Scanner scanner = new Scanner(System.in);
 
-        while(loop) {
+        while (loop) {
             System.out.println("show: 显示栈");
             System.out.println("exit: 退出程序");
             System.out.println("push: 入栈");
@@ -70,24 +71,27 @@ class ArrayStack {
     public boolean isFull() {
         return top == maxSize - 1;
     }
+
     //栈空
     public boolean isEmpty() {
         return top == -1;
     }
+
     //入栈-push
     public void push(int value) {
         //先判断栈是否满
-        if(isFull()) {
+        if (isFull()) {
             System.out.println("栈满");
             return;
         }
         top++;
         stack[top] = value;
     }
+
     //出栈-pop, 将栈顶的数据返回
     public int pop() {
         //先判断栈是否空
-        if(isEmpty()) {
+        if (isEmpty()) {
             //抛出异常
             throw new RuntimeException("栈空，没有数据~");
         }
@@ -95,14 +99,15 @@ class ArrayStack {
         top--;
         return value;
     }
+
     //显示栈的情况[遍历栈]， 遍历时，需要从栈顶开始显示数据
     public void list() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             System.out.println("栈空，没有数据~~");
             return;
         }
         //需要从栈顶开始显示数据
-        for(int i = top; i >= 0 ; i--) {
+        for (int i = top; i >= 0; i--) {
             System.out.printf("stack[%d]=%d\n", i, stack[i]);
         }
     }

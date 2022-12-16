@@ -116,6 +116,7 @@ public class interview {
     }
 
     //方法：获取到单链表的节点的个数(如果是带头结点的链表，需求不统计头节点)
+
     /**
      * @param head 链表的头节点
      * @return 返回的就是有效节点的个数
@@ -142,15 +143,18 @@ class Node {
     public int no;
     public String name;
     public Node next;
+
     public Node(int no, String name) {
         this.no = no;
         this.name = name;
     }
+
     @Override
     public String toString() {
         return "Node [no=" + no + ", name=" + name + "]";
     }
 }
+
 class SinglList {
     // 先初始化头节点，头节点不动
     private Node head = new Node(0, "");
@@ -196,7 +200,7 @@ class SinglList {
         //因为头节点不能动，需要一个辅助变量来遍历
         Node temp = head.next;
         while (true) {
-        //判断是否到链表最后
+            //判断是否到链表最后
             if (temp == null)
                 break;
             System.out.println(temp);
@@ -204,6 +208,7 @@ class SinglList {
         }
     }
 }
+
 //合并两个有序的单链表，合并之后的链表依然有序
 class TwoLinkedList {
     public static void main(String[] args) {

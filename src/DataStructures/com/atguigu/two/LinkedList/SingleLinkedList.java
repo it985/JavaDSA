@@ -1,8 +1,8 @@
 package DataStructures.com.atguigu.two.LinkedList;
 
-import java.util.Stack;
-
-/** 单链表
+/**
+ * 单链表
+ *
  * @author zx
  * @date 2022/9/15 18:14
  */
@@ -43,10 +43,10 @@ public class SingleLinkedList {
         singleLL.list();
 
         //删除一个节点
-		singleLL.del(1);
-		singleLL.del(4);
-		System.out.println("删除后的链表情况~~");
-		singleLL.list();
+        singleLL.del(1);
+        singleLL.del(4);
+        System.out.println("删除后的链表情况~~");
+        singleLL.list();
     }
 
     private static void up() throws Exception {
@@ -63,10 +63,10 @@ public class SingleLinkedList {
         singleLL.add(hero2);
         singleLL.add(hero3);
         //测试修改节点的代码
-		HeroNode newHeroNode = new HeroNode(2, "小卢", "玉麒麟~~");
-		singleLL.update(newHeroNode);
+        HeroNode newHeroNode = new HeroNode(2, "小卢", "玉麒麟~~");
+        singleLL.update(newHeroNode);
 
-		System.out.println("修改后的链表情况~~");
+        System.out.println("修改后的链表情况~~");
         singleLL.list();
     }
 
@@ -111,9 +111,9 @@ class SingleLL {
         //因为head节点不能动，因此我们需要一个辅助遍历 temp
         HeroNode temp = head;
         //遍历链表，找到最后
-        while(true) {
+        while (true) {
             //找到链表的最后
-            if(temp.next == null) {//
+            if (temp.next == null) {//
                 break;
             }
             //如果没有找到最后, 将将temp后移
@@ -131,11 +131,11 @@ class SingleLL {
         //因为单链表，因为我们找的temp 是位于 添加位置的前一个节点，否则插入不了
         HeroNode temp = head;
         boolean flag = false; // flag标志添加的编号是否存在，默认为false
-        while(true) {
-            if(temp.next == null) {//说明temp已经在链表的最后
+        while (true) {
+            if (temp.next == null) {//说明temp已经在链表的最后
                 break; //
             }
-            if(temp.next.no > heroNode.no) { //位置找到，就在temp的后面插入
+            if (temp.next.no > heroNode.no) { //位置找到，就在temp的后面插入
                 break;
             } else if (temp.next.no == heroNode.no) {//说明希望添加的heroNode的编号已然存在
 
@@ -145,7 +145,7 @@ class SingleLL {
             temp = temp.next; //后移，遍历当前链表
         }
         //判断flag 的值
-        if(flag) { //不能添加，说明编号存在
+        if (flag) { //不能添加，说明编号存在
             System.out.printf("准备插入的英雄的编号 %d 已经存在了, 不能加入\n", heroNode.no);
         } else {
             //插入到链表中, temp的后面
@@ -159,7 +159,7 @@ class SingleLL {
     //1. 根据 newHeroNode 的 no 来修改即可
     public void update(HeroNode newHeroNode) {
         //判断是否空
-        if(head.next == null) {
+        if (head.next == null) {
             System.out.println("链表为空~");
             return;
         }
@@ -167,11 +167,11 @@ class SingleLL {
         //定义一个辅助变量
         HeroNode temp = head.next;
         boolean flag = false; //表示是否找到该节点
-        while(true) {
+        while (true) {
             if (temp == null) {
                 break; //已经遍历完链表
             }
-            if(temp.no == newHeroNode.no) {
+            if (temp.no == newHeroNode.no) {
                 //找到
                 flag = true;
                 break;
@@ -179,7 +179,7 @@ class SingleLL {
             temp = temp.next;
         }
         //根据flag 判断是否找到要修改的节点
-        if(flag) {
+        if (flag) {
             temp.name = newHeroNode.name;
             temp.nickname = newHeroNode.nickname;
         } else { //没有找到
@@ -194,11 +194,11 @@ class SingleLL {
     public void del(int no) {
         HeroNode temp = head;
         boolean flag = false; // 标志是否找到待删除节点的
-        while(true) {
-            if(temp.next == null) { //已经到链表的最后
+        while (true) {
+            if (temp.next == null) { //已经到链表的最后
                 break;
             }
-            if(temp.next.no == no) {
+            if (temp.next.no == no) {
                 //找到的待删除节点的前一个节点temp
                 flag = true;
                 break;
@@ -206,10 +206,10 @@ class SingleLL {
             temp = temp.next; //temp后移，遍历
         }
         //判断flag
-        if(flag) { //找到
+        if (flag) { //找到
             //可以删除
             temp.next = temp.next.next;
-        }else {
+        } else {
             System.out.printf("要删除的 %d 节点不存在\n", no);
         }
     }
@@ -217,15 +217,15 @@ class SingleLL {
     //显示链表[遍历]
     public void list() {
         //判断链表是否为空
-        if(head.next == null) {
+        if (head.next == null) {
             System.out.println("链表为空");
             return;
         }
         //因为头节点，不能动，因此我们需要一个辅助变量来遍历
         HeroNode temp = head.next;
-        while(true) {
+        while (true) {
             //判断是否到链表最后
-            if(temp == null) {
+            if (temp == null) {
                 break;
             }
             //输出节点的信息
@@ -242,12 +242,14 @@ class HeroNode {
     public String name;
     public String nickname;
     public HeroNode next; //指向下一个节点
+
     //构造器
     public HeroNode(int no, String name, String nickname) {
         this.no = no;
         this.name = name;
         this.nickname = nickname;
     }
+
     //为了显示方法，我们重新toString
     @Override
     public String toString() {
